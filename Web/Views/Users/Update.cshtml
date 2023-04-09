@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model EmployeeInputModel
+
+@{
+    ViewData["Title"] = "Update employee data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Update employee data</h1>
+
+
+<div class="d-flex justify-content-center">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-controller="Users" asp-action="Update" method="post">
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.FirstName"></label>
+                <input asp-for="@Model.FirstName" class="form-control" />
+                <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.SecondName"></label>
+                <input asp-for="@Model.SecondName" class="form-control" />
+                <span asp-validation-for="@Model.SecondName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.LastName"></label>
+                <input asp-for="@Model.LastName" class="form-control" />
+                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UCN"></label>
+                <input asp-for="@Model.UCN" class="form-control" />
+                <span asp-validation-for="@Model.UCN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserName"></label>
+                <input asp-for="@Model.UserName" class="form-control" />
+                <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Email"></label>
+                <input asp-for="@Model.Email" class="form-control" />
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PhoneNumber"></label>
+                <input asp-for="@Model.PhoneNumber" class="form-control" />
+                <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="@Model.IsAdult" /> @Html.DisplayNameFor(model => model.IsAdult)
+                    </label>
+                </div>
+            </div>
+            <input hidden asp-for="@Model.Password"  class="form-control" value="password" />
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-success submit-but ">Update Employee</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
